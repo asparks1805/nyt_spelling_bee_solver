@@ -1,5 +1,6 @@
 import argparse
 import json
+import os
 
 parser = argparse.ArgumentParser(description='NYT Spelling Bee solver')
 parser.add_argument('-r', type=str, help='Required letter at the center of the puzzle')
@@ -13,9 +14,10 @@ puzzle_letters = required_letter + other_letters
 alphabet_string = 'abcdefghijklmnopqrstuvwxyz'
 
 def fetch_dictionary():
+
     filename = 'words_dictionary.json'
     if filename:
-        with open(filename, 'r') as f:
+        with open(os.path.dirname(os.path.realpath(__file__)) + '/' + filename, 'r') as f:
             dictionary = json.load(f)
     return dictionary
 
