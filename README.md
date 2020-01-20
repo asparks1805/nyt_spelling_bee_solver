@@ -8,6 +8,7 @@ This is a Python project to obtain all of the possible answers to the daily NY T
 
 - [Overview](#overview)
 - [Set up](#set-up)
+- [Command](#command)
 - [References/sources](#references)
 - [To do list](#to-do-list)
 - [Other notes](#other-notes)
@@ -26,7 +27,12 @@ unique letters).
 The alphabet array is used to quickly identify the letters that are not in the daily puzzle.
 
 # Set up
-Just run it. No pip installs or other set up required.
+No pip installs required. I modified my .zshrc file to shortcut the command. If you want to do that, run 
+`nano ~/.zshrc` and add `alias nyt='python3 /yourpathtotherepo/nyt_spelling_bee_solver/nyt_sb_solver.py'`.
+
+# Command
+From your terminal's command line, run `python3 nyt_sb_solver.py -r g -o abcdef` (where the letter following 
+the -r is your required letter and the letter following -o are the other 6 letters in the puzzle).
 
 # References
 - Dictionary file: https://github.com/dwyl/english-words 
