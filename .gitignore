@@ -108,6 +108,3 @@ venv.bak/
 
 # MacOS stuff
 .DS_Store
-
-# my local main.static folder (in Azure this gets mounted to blob storage)
-app/main/static/

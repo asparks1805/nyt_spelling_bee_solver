@@ -69,16 +69,52 @@ def filter_words_with_letters_not_in_puzzle(letters_to_filter_out, possible_word
                 possible_words.pop(word)
                 break
             counter = counter + 1
+
+    sorted_possible_words = {}
+    for k in sorted(possible_words, key=len, reverse=True):
+        sorted_possible_words[k] = possible_words[k]
             
-    return possible_words
+    return sorted_possible_words
+
+def panagram(answers):
+    panagram_words =[]
+    p1 = puzzle_letters[0]
+    p2 = puzzle_letters[1]
+    p3 = puzzle_letters[2]
+    p4 = puzzle_letters[3]
+    p5 = puzzle_letters[4]
+    p6 = puzzle_letters[5]
+    p7 = puzzle_letters[6]
+
+    for possible_panagram in answers:
+        if answers[possible_panagram][p1] == 1 and answers[possible_panagram][p2] == 1 \
+            and answers[possible_panagram][p3] == 1 and answers[possible_panagram][p4] == 1 \
+            and answers[possible_panagram][p5] == 1 and answers[possible_panagram][p6] == 1 \
+            and answers[possible_panagram][p7] == 1:
+            
+            panagram_words.append(possible_panagram)
+        
+    
+            
+
+
+    return panagram_words
 
 
 dictionary = fetch_dictionary()
 letters_to_filter_out = get_letters_not_in_puzzle()
 possible_words = words_with_required_letter()
 answers = filter_words_with_letters_not_in_puzzle(letters_to_filter_out, possible_words)
+panagram_words = panagram(answers)
+
+print('----------ALL ANSWERS------------')
 for word in answers:
     print(word)
+print('-------PANAGRAM ANSWERS----------')
+for word in panagram_words:
+    print(word)
+
+
 
 
 
